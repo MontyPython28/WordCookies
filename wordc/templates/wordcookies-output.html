@@ -1,0 +1,25 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }}</title>
+        {% endif %}
+    </head>
+    <body>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+		{% endif %}
+		{% endwith %}
+		<h1>These are the words you can make!</h1>
+		<ul>
+			{% for word in word_list %}
+			<li>{{ word }}</li>
+			{% endfor %}
+		</ul>
+    </body>
+</html>

@@ -1,0 +1,3 @@
+from wordc import wordc
+
+
