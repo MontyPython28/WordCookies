@@ -1,1 +1,1 @@
-web: gunicorn wordc:wordc
+web: gunicorn wordc:wordcookies
