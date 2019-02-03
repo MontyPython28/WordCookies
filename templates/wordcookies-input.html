@@ -1,32 +1,35 @@
 <html>
     <head>
+		<link href="css/bootstrap.min.css" rel="stylesheet" >
         {% if title %}
         <title>{{ title }}</title>
         {% endif %}
     </head>
     <body>
-		<hr>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-		{% endif %}
-		{% endwith %}
-		<h1>WordCookies</h1>
-		<form action="{{ url_for('wordcookies') }}" method="post" novalidate>
-			{{ form.hidden_tag() }}
-			<p>
-				{{ form.letters.label }}<br>
-				{{ form.letters(size=32) }}<br>
-				{% for error in form.letters.errors %}
-				<span style="color: red;">[{{ error }}]</span>
+		<div class="container offset1 span9" >
+			<hr>
+			{% with messages = get_flashed_messages() %}
+			{% if messages %}
+			<ul>
+				{% for message in messages %}
+				<li>{{ message }}</li>
 				{% endfor %}
-			</p>
-		
-			<p>{{ form.submit() }}</p>
-		</form>
+			</ul>
+			{% endif %}
+			{% endwith %}
+			<h1>WordCookies</h1>
+			<form action="{{ url_for('wordcookies') }}" method="post" novalidate>
+				{{ form.hidden_tag() }}
+				<p>
+					{{ form.letters.label }}<br>
+					{{ form.letters(size=32) }}<br>
+					{% for error in form.letters.errors %}
+					<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</p>
+			
+				<p>{{ form.submit() }}</p>
+			</form>
+		</div>
     </body>
 </html>
