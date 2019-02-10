@@ -10,7 +10,7 @@ class Config(object):
 
 app = Flask(__name__)
 app.config.from_object(Config)
-#Bootstrap(app)
+Bootstrap(app)
 
 class GetLetters(FlaskForm):
     letters = StringField('Enter letters', validators=[DataRequired()])
@@ -51,7 +51,7 @@ def wordcookies():
 			word_list = get_words(lst, 'word_bank.txt') #gets list of words possible to make with these letters
 			return render_template('wordcookies-output.html', title='Results', word_list=word_list)
 		return render_template('wordcookies-input.html', title='Word Cookies', form=form)
-	except Exception, e:
+	except Exception as e:
 		print("ERROR: ", str(e))
 
 if __name__ == "__main__":
