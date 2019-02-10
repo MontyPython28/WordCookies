@@ -2,12 +2,14 @@ from flask import Flask, render_template, flash, redirect, url_for
 from flask_wtf import FlaskForm, Form
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+from flask_bootstrap import Bootstrap
 import os
 
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
 
 app = Flask(__name__)
+Bootstrap(app)
 app.config.from_object(Config)
 
 class GetLetters(FlaskForm):
@@ -34,7 +36,6 @@ def get_words(letter_list, dictionary_name):
                     test.remove(character)
             if count == len(item) and len(item)>=3:
                 sort_lst.append(item)
-                print (item)
         return sort_lst	
 	
 @app.route('/')	
