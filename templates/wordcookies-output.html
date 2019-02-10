@@ -1,28 +1,20 @@
-<html>
-    <head>
-		<link href="css/bootstrap.min.css" rel="stylesheet" >
-        {% if title %}
-        <title>{{ title }}</title>
-        {% endif %}
-    </head>
-    <body>
-		<div class="container offset1 span9" >
-			<hr>
-			{% with messages = get_flashed_messages() %}
-			{% if messages %}
-			<ul>
-				{% for message in messages %}
-				<li>{{ message }}</li>
-				{% endfor %}
-			</ul>
-			{% endif %}
-			{% endwith %}
-			<h1>These are the words you can make!</h1>
-			<ul>
-				{% for word in word_list %}
-				<li>{{ word }}</li>
-				{% endfor %}
-			</ul>
-		</div>
-    </body>
-</html>
+{% extends "bootstrap/base.html" %}
+{% block title %}This is an example page{% endblock %}
+{% block content %}
+	<hr>
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<ul>
+		{% for message in messages %}
+		<li>{{ message }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	{% endwith %}
+	<h1>These are the words you can make!</h1>
+	<ul>
+		{% for word in word_list %}
+		<li>{{ word }}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
