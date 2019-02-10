@@ -1,6 +1,7 @@
 {% extends "bootstrap/base.html" %}
-{% block title %}This is an example page{% endblock %}
+{% block title %} {{ title }} {% endblock %}
 {% block content %}
+ <div class="container">
 	<hr>
 	{% with messages = get_flashed_messages() %}
 	{% if messages %}
@@ -17,4 +18,5 @@
 		<li>{{ word }}</li>
 		{% endfor %}
 	</ul>
+</div>
 {% endblock %}
