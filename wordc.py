@@ -41,16 +41,18 @@ def get_words(letter_list, dictionary_name):
 @app.route('/')	
 @app.route('/wordcookies', methods=['GET', 'POST'])
 def wordcookies():
-    form = GetLetters()
-    if form.validate_on_submit():
-        lst = list()
-        n = 0
-        for letter in form.letters.data:
-            lst.append(letter.upper()) #makes list of characters in upper case
-        word_list = get_words(lst, 'word_bank.txt') #gets list of words possible to make with these letters
-        return render_template('wordcookies-output.html', title='Results', word_list=word_list)
-    return render_template('wordcookies-input.html', title='Word Cookies', form=form)
-
+	try:
+		form = GetLetters()
+		if form.validate_on_submit():
+			lst = list()
+			n = 0
+			for letter in form.letters.data:
+				lst.append(letter.upper()) #makes list of characters in upper case
+			word_list = get_words(lst, 'word_bank.txt') #gets list of words possible to make with these letters
+			return render_template('wordcookies-output.html', title='Results', word_list=word_list)
+		return render_template('wordcookies-input.html', title='Word Cookies', form=form)
+	except Exception, e:
+		print("ERROR: ", str(e))
 
 if __name__ == "__main__":
     app.run()
