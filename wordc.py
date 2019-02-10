@@ -10,7 +10,7 @@ class Config(object):
 
 app = Flask(__name__)
 app.config.from_object(Config)
-Bootstrap(app)
+#Bootstrap(app)
 
 class GetLetters(FlaskForm):
     letters = StringField('Enter letters', validators=[DataRequired()])
