@@ -69,8 +69,8 @@ def wordcookies():
 		if form.validate_on_submit():
 			lst = list()
 			n = 0
-			print (form.letters.data.upper())
 			savequery(form.letters.data.upper())
+			print (form.letters.data.upper())
 			for letter in form.letters.data:
 				lst.append(letter.upper()) #makes list of characters in upper case
 			word_list = get_words(lst, 'word_bank.txt') #gets list of words possible to make with these letters
