@@ -25,7 +25,7 @@ class Counter(db.Model):
     def __repr__(self):
         return '<Counter {}>'.format(self.letters) 
 
-class GetLetters(FlaskForm):
+class GetLetters(Form):
     letters = StringField('Enter letters', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
@@ -81,4 +81,3 @@ def wordcookies():
 
 if __name__ == "__main__":
     app.run()
-
